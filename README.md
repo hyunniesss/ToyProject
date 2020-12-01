@@ -13,7 +13,7 @@
     </tr>
     <tr>
     	<td>DB</td>
-        <td><img src="" alt="mariaDB">mariaDB / MySQL & Redis & mongoDB </td>
+        <td><img src="" alt="mariaDB"> MySQL & Redis & mongoDB </td>
     </tr>
     <tr>
     	<td>백엔드</td>
@@ -58,4 +58,31 @@
 </table>
 
 > <a href="https://stackshare.io/tools/top">기술스택</a>
+
+
+
+## 2. 커밋메시지
+
+<table style="text-align: center">
+    <tr>
+    	<th>구조</th>
+        <th>설명</th>
+    </tr>
+    <tr>
+        <th>[+]ADD</th>
+        <td>파일/ 프로젝트 추가</td>
+    </tr>
+    <tr>
+        <th>[+]UPDATE</th>
+        <td>기존 파일 수정</td>
+    </tr>
+    <tr>
+        <th>[-]DELETE</th>
+        <td>파일/ 프로젝트 삭제</td>
+    </tr>
+    <tr>
+        <th>[*]MERGE</th>
+        <td>상위 브랜치랑 merge 후 conflict 수정</td>
+    </tr>
+</table>
 
