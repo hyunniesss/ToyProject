@@ -29,6 +29,7 @@ public class AccountController {
 	@PostMapping("/signup")
 	public ResponseEntity<HashMap<String, Object>> signup(Account account) {
 		System.out.println(account.toString());
+		accountService.signup(account);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

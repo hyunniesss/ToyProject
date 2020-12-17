@@ -20,4 +20,11 @@ public class AccountServiceImpl implements AccountService {
 		return true;
 	}
 
+	@Override
+	public void signup(Account account) {
+		Account temp = accountRepo.save(account);
+	}
+	
+	
+
 }

@@ -8,6 +8,7 @@ import com.backend.test.dto.Account;
 @Repository
 public interface AccountRepo extends JpaRepository<Account, Integer> {
 	
+	// select * from Account where user_id = :UserId
 	public Account findByUserId(String UserId);
 
 }
