@@ -21,11 +21,11 @@ import lombok.ToString;
 @ToString
 @Builder // 모든 파라미터를 사용하지 않고도 값을 넣을 수 있고, Constructor 대신이라고 생각하자
 public class Account {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int uid;
-	@Column(name="user_id") // 이름을 똑같이 사용한다면 굳이 안적어도 된다. 대문자가 있으면 요런 형식으로 바꿔줌
+	@Column(name = "user_id") // 이름을 똑같이 사용한다면 굳이 안적어도 된다. 대문자가 있으면 요런 형식으로 바꿔줌
 	private String userId;
 	private String userPassword;
 	private String userName;
