@@ -7,6 +7,8 @@ import com.backend.test.dto.Account;
 
 @Repository
 public interface AccountRepo extends JpaRepository<Account, Integer> {
-
+	
 	public Account findByUserId(String userId);
+
+	public Account findByUserIdAndUserPassword(String userId, String userPassword);
 }
