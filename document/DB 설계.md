@@ -12,13 +12,25 @@ userPassword : String, not null
 
 userEmail : String, not null, unique
 
+https://engkimbs.tistory.com/849
+
 
 
 #### Profile
 
-account_uid : FK, PK
+uid : PK
 
-userPhone : unique
+userName : String, not null
+
+profileImage : String, default image
+
+userId : String, not null, unique
+
+userPassword : String, not null
+
+userEmail : String, not null, unique
+
+
 
 
 
