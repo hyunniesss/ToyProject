@@ -35,10 +35,10 @@ public class Account {
 	private String userEmail;
 	@Column(nullable = false)
 	private String userPassword;
-	
+	@Column(nullable = false)
 	private String userName;
+	
 	@CreationTimestamp
 	private Date regTime;
-	
 
 }
