@@ -5,12 +5,16 @@
 | column명                   | type         | null | key  | default     | extra          |
 | -------------------------- | ------------ | ---- | ---- | ----------- | -------------- |
 | uid                        | long         | no   | pri  | null        | auto_increment |
-| userId<br />학번           | varchar(10)  | no   |      | null        | unique         |
-| userPassword<br />비밀번호 | varchar(255) | no   |      | null        |                |
+| userId<br />학번           | varchar(10)  | yes  |      | null        | unique         |
+| userPassword<br />비밀번호 | varchar(255) | yes  |      | null        |                |
 | userName<br />이름         | varchar(25)  | no   |      | null        |                |
-| userEmail<br />이메일      | varchar(255) | no   |      | null        | unique         |
+| userEmail<br />이메일      | varchar(255) | yes  |      | null        | unique         |
 | userImage<br />프로필 사진 | varchar(255) | yes  |      | default.png |                |
-| status<br />로그인 상태    | boolean      | yes  |      | false       |                |
+| status<br />로그인 상태    | boolean      | no   |      | false       |                |
+
+탈퇴시 학번, 비밀번호, 이메일 null값으로
+
+
 
 https://engkimbs.tistory.com/849 - sns 로그인
 
@@ -59,7 +63,7 @@ https://engkimbs.tistory.com/849 - sns 로그인
 | title<br />제목             | varchar(255) | no   |      | null              |                |
 | content<br />내용           | varchar(255) | yes  |      | null              |                |
 | filename<br />첨부파일 위치 | varchar(255) | yes  |      | null              |                |
-| regtime<br />작성 시간      | date         | yes  |      | current_timestamp |                |
+| regtime<br />작성 시간      | datetime     | no   |      | current_timestamp |                |
 | isNotice<br />공지사항인지  | boolean      | no   |      | null              |                |
 
 
@@ -72,6 +76,19 @@ https://engkimbs.tistory.com/849 - sns 로그인
 | clubNoticeUid                 | long     | no   | FK   | null    | notice의 모든 것~ |
 | startDate<br />일정 시작 날짜 | datetime | no   |      | null    |                   |
 | endDate<br />일정 끝 날짜     | datetime | no   |      | null    |                   |
+
+```java
+@Entity
+public class ClubNotice {
+    ...
+        
+    @OneToOne
+    @JoinColumn(name = "clubnotice_id")
+    private ClubNotice clubnotice;
+ 
+    ...
+}
+```
 
 
 
@@ -87,7 +104,7 @@ https://engkimbs.tistory.com/849 - sns 로그인
 | title<br />제목             | varchar(255) | no   |      | null              |                |
 | content<br />내용           | varchar(255) | yes  |      | null              |                |
 | filename<br />첨부파일 위치 | varchar(255) | yes  |      | null              |                |
-| regtime<br />작성 시간      | date         | yes  |      | current_timestamp |                |
+| regtime<br />작성 시간      | datetime     | no   |      | current_timestamp |                |
 
 
 
@@ -108,4 +125,23 @@ https://engkimbs.tistory.com/849 - sns 로그인
 | uid                 | long         | no   | PK   | null    | auto_increment |
 | bigDivUid           | long         | no   | FK   | null    | 대분류명       |
 | dName<br />소분류명 | varchar(255) | no   |      | null    |                |
+
+
+
+#### ClubApply
+
+| column명                    | type         | null | key  | default           | extra          |
+| --------------------------- | ------------ | ---- | ---- | ----------------- | -------------- |
+| uid                         | long         | no   | PK   | null              | auto_increment |
+| accountUid                  | long         | no   | FK   | null              | 작성자명       |
+| clubUid                     | long         | no   | FK   | null              | 동아리명       |
+| bigDivUid                   | long         | no   | FK   | null              | 대분류명       |
+| smallDivUid                 | long         | yes  | FK   | null              | 소분류명       |
+| title<br />제목             | varchar(255) | no   |      | null              |                |
+| content<br />내용           | varchar(255) | yes  |      | null              |                |
+| filename<br />첨부파일 위치 | varchar(255) | yes  |      | null              |                |
+| regtime<br />작성 시간      | datetime     | no   |      | current_timestamp |                |
+| isMember<br />동아리 멤버?  | boolean      | no   |      | false             |                |
+
+
 
