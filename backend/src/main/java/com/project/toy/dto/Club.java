@@ -1,14 +1,14 @@
 package com.project.toy.dto;
 
-import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,22 +17,29 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 @Getter
 @Setter
 @ToString
-public class Profile implements Serializable{
-	
-	private static final long serialVersionUID = 1L;
+public class Club {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long profileUid;
-	@OneToOne
-	@JoinColumn(name = "account.uid", insertable = false, updatable = false)
-	private Account account;
-	private String userPhone;
+	private Long uid;
+
+	@Column(nullable = false, unique = true)
+	private String clubName;
+
+	private String description;
+
+	private String profile;
+
+	private boolean isCentral;
+
+	@OneToMany(mappedBy = "club", cascade = CascadeType.ALL)
+	private List<Role> clubs;
 
 }
