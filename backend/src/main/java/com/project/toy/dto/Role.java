@@ -4,9 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.ManyToOne;
-
-import org.hibernate.annotations.ColumnDefault;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,17 +21,16 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@IdClass(RoleId.class)
 public class Role { // 얘가 주인
-	
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
 
+	@Id
 	@ManyToOne
 	private Account account;
 
+	@Id
 	@ManyToOne
 	private Club club;
 
-	private String clubRole; // "CLUB_ADMIN"
-
+	private String clubRole = "CLUB_ADMIN";
 }
