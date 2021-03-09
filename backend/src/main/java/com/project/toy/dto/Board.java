@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -17,22 +18,22 @@ import javax.persistence.TemporalType;
 //@DiscriminatorColumn
 //@Embeddable
 public abstract class Board {
-
-//	@Id @GeneratedValue
-//	private Long id;
-//	
+	
+//	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
 //	@OneToOne
-//	private Club club;
-//	
-//	private String title;
-//	
+	private Club club;
+	
+	private String title;
+	
 //	@OneToOne
-//	private Account writer;
-//	
-//	private String content;
-//	
-//	private String file;
-//	
+	private Account writer;
+	
+	private String content;
+	
+	private String file;
+	
 //	@Temporal(TemporalType.TIMESTAMP)
-//	private Date regtime = new Date();
+	private Date regtime = new Date();
 }

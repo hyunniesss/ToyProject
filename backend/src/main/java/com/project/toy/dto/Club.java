@@ -39,7 +39,7 @@ public class Club {
 
 	private boolean isCentral;
 
-	@OneToMany(mappedBy = "club", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "club")
 	private List<Role> clubs;
 
 }

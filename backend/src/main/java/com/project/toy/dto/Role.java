@@ -1,5 +1,6 @@
 package com.project.toy.dto;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,10 +28,10 @@ public class Role { // 얘가 주인
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Account account;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Club club;
 
 	private String clubRole; // "CLUB_ADMIN"

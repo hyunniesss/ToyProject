@@ -47,7 +47,7 @@ public class Account {
 
 	private String profile;
 
-	@OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "account")
 	private List<Role> clubRoles = new ArrayList<>();
 
 	private String siteRole; // ROLE_ADMIN
