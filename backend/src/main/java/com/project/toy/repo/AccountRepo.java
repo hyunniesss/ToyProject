@@ -7,5 +7,6 @@ import com.project.toy.dto.Account;
 
 @Repository
 public interface AccountRepo extends JpaRepository<Account, Long> {
+	
 
 }

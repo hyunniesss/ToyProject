@@ -1,10 +1,12 @@
 package com.project.toy.dto;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
@@ -25,12 +27,15 @@ import lombok.ToString;
 public class Role { // 얘가 주인
 
 	@Id
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="ACCOUNT_ID")
 	private Account account;
 
 	@Id
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="CLUB_ID")
 	private Club club;
 
-	private String clubRole = "CLUB_ADMIN";
+	@Enumerated(EnumType.STRING)
+	private UserRole clubRole;
 }

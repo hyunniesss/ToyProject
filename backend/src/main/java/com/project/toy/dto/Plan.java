@@ -1,9 +1,5 @@
 package com.project.toy.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
 //@Entity
 //@DiscriminatorValue("일정")
 public class Plan extends Board{

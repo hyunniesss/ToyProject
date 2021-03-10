@@ -1,14 +1,12 @@
 package com.project.toy.dto;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,13 +22,15 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@Table(uniqueConstraints={@UniqueConstraint(columnNames={"CLUB_NAME"})})
 public class Club {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="CLUB_ID")
 	private Long uid;
 
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false, name="CLUB_NAME")
 	private String clubName;
 
 	private String description;
@@ -39,7 +39,7 @@ public class Club {
 
 	private boolean isCentral;
 
-	@OneToMany(mappedBy = "club", cascade = CascadeType.ALL)
-	private List<Role> clubs;
+//	@OneToMany(mappedBy = "club", cascade = CascadeType.ALL)
+//	private List<Role> clubs;
 
 }

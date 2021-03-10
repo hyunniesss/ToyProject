@@ -1,17 +1,5 @@
 package com.project.toy.dto;
 
-import java.util.Date;
-
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
 //@Entity
 //@Inheritance(strategy = InheritanceType.JOINED)
 //@DiscriminatorColumn
