@@ -39,6 +39,8 @@ public class TestApplication implements ApplicationRunner {
 		Role role = Role.builder().build();
 		role.setClub(club);
 		role.setAccount(account);
+		role.setClubRole(null);
+		
 		
 		Session session = entityManager.unwrap(Session.class);
 		session.save(club);
@@ -51,7 +53,7 @@ public class TestApplication implements ApplicationRunner {
 		
 //		Role role1= entityManager.find(Role.class, roleId);
 		Role role1= session.find(Role.class, roleId);
-		System.out.println(role1.getAccount().getUserEmail());
+		System.out.println(role1.getClubRole());
 	}
 
 }

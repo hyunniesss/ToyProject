@@ -1,8 +1,8 @@
 package com.project.toy.dto;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.ManyToOne;
@@ -25,12 +25,13 @@ import lombok.ToString;
 public class Role { // 얘가 주인
 
 	@Id
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Club club;
+	
+	@Id
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Account account;
 
-	@Id
-	@ManyToOne
-	private Club club;
-
+	@Column(columnDefinition = "varchar(20) default 'CLUB_ADMIN'")
 	private String clubRole = "CLUB_ADMIN";
 }

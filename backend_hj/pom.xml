@@ -62,7 +62,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.16</version> <!-- 이건 자신의 컴퓨터에 설치한 lombok.jar파일의 버전에 맞게 -->
+			<version>1.18.18</version> <!-- 이건 자신의 컴퓨터에 설치한 lombok.jar파일의 버전에 맞게 -->
 			<scope>provided</scope>
 		</dependency>
 
