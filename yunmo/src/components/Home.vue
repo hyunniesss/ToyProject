@@ -1,27 +1,23 @@
 <template>
     <div>
-        <div
-        style="
-      position: fixed;
-      height: 75px;
-      padding: 1rem;
-      color: black;
-      background-color: rgba(0, 0, 0, 0.5);
-      font-weight: bold;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 5;
-    ">야아아아ㅏ</div>
+        <img src="../assets/images/background1.jpg" style="height: 500px; width: 100%; object-fit: cover;" >
+        <div>
+            <Slide right width="200">
+                <a id="home" href="/">
+                    <span>Home</span>
+                </a>
+            </Slide>
+        </div>
     </div>
 </template>
 
 <script>
+import { Slide } from 'vue-burger-menu'
 export default {
     name: 'home',
+    components:{
+        Slide
+    },
     data(){
         return{
 
@@ -34,5 +30,7 @@ export default {
 </script>
 
 <style>
-
+    .bm-overlay {
+      background: white;
+    }
 </style>
